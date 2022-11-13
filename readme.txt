@@ -1,4 +1,3 @@
-# K8s-vote
 Vote: dipesh017/demo:vote
 Redis: redis:5.0-alpine3.10
 Worker: dipesh017/demo:worker
