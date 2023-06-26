@@ -3,15 +3,18 @@ kind: Service
 metadata:
   labels:
     app: vote
-  name: vote
+  name: vote-myapp
   namespace: local
+  annotations:
+#Important Note:  Need to add health check path annotations in service level if we are planning to use multiple targets in a load balancer
+    alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: "vote-service"
     port: 80
     targetPort: 80
-    nodePort: 31000
+      #    nodePort: 31000
   selector:
     app: vote
   

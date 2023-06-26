@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: vote
-  name: vote-deployment
+    app: result
+  name: result
   namespace: local
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vote
+      app: result
   template:
     metadata:
       labels:
-        app: vote
+        app: result
     spec:
       containers:
-      - image: abhijeetnikam1995/vote-j:latest
-        name: vote
+      - image: abhijeetnikam1995/results:2
+        name: result
         ports:
         - containerPort: 80
-          name: vote
+          name: result
